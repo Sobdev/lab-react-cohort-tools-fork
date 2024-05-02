@@ -3,20 +3,24 @@ import Navbar from "./components/Navbar";
 import HomePage from "./pages/HomePage";
 import StudentDetailsPage from "./pages/StudentDetailsPage";
 import UserProfilePage from "./pages/UserProfilePage";
+import { Route, Routes } from 'react-router-dom';
 
 
 function App() {
-
+  // Route / for the HomePage.
+  //   Route / students /:studentId for the StudentDetailsPage.
+  //     Route / profile for the UserProfilePage.
   return (
     <div className="App relative z-20 pt-20">
       <Navbar />
 
       <div className="pages">
-        <HomePage />
-
-        <StudentDetailsPage />
-
-        <UserProfilePage />
+        <Routes>
+          <Route path={'/'} element={<HomePage />} />
+          <Route path={'/profile'} element={<UserProfilePage />} />
+          <Route path={'/students/:studentId'} element={<StudentDetailsPage />} />
+          {/* FALTA PONERLO CON ID ? */}
+        </Routes>
       </div>
 
     </div>
